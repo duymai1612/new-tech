@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <input type="text" id="txtbox" value="" />
+    <div id="result"></div>
+    <script language="javascript">
+      // get the object
+      var input = document.getElementById("txtbox");
+
+      // add event to the specific Object
+      input.addEventListener("keyup", function () {
+        // show the detail
+        document.getElementById("result").innerHTML = input.value;
+      });
+      // we can add more event like this
+      input.addEventListener("keyup", function () {
+        if (input.value.length > 3) {
+          alert("Please add 3 characters only");
+        }
+      });
+    </script>
+
+    <input type="button" id="show-btn" value="Click me" />
+    <script language="javascript">
+      // take the object
+      var button = document.getElementById("show-btn");
+      // adding the event for the object
+      button.onclick = function () {
+        alert("You just have clicked on the button. This is added event");
+      };
+    </script>
+
+    <h4>Please press Ctrl + Roll your mouse</h4>
+    <div id="result1"></div>
+    <script language="javascript">
+      window.addEventListener("resize", function () {
+        document.getElementById("result1").innerHTML =
+          "You change your screen size";
+      });
+    </script>
+
+    <h4>Please press Ctrl + Roll your mouse</h4>
+    <div id="result"></div>
+    <div>-------------------------</div>
+    <p id="container">Click</p>
+    <script type="text/javascript">
+      window.addEventListener("resize", getResize);
+      function getResize() {
+        document.write("You changed your screen size");
+      }
+    </script>
+
+    <input type="button" id="btn" value="Click" />
+    <div id="result"></div>
+    <script language="javascript">
+      var button = document.getElementById("btn");
+      button.addEventListener("click", function () {
+        do_something("MEAN", "Stack");
+      });
+
+      function do_something(a, b) {
+        alert(a + b);
+      }
+    </script>
+
+    <input type="text" value="hcmute.edu.vn" id="web" />
+
+    <script language="javascript">
+      // get input tag
+      var element = document.getElementById("web");
+
+      // retrieve the input value
+      document.write(element.value);
+    </script>
+    <br />
+
+    <input type="text" value="hcmute.edu.vn" />
+    <input type="text" value="vnexpress.vn" />
+    <script language="javascript">
+      // take input tag
+      var element = document.getElementsByTagName("input");
+      document.write("<hr>");
+      // get it value
+      document.write(element[0].value, "<br>");
+      document.write(element[1].value);
+    </script>
+
+    <hr />
+    <input type="text" value="hcmute.edu.vn" class="web" />
+    <script language="javascript">
+      // take class name
+      var element = document.getElementsByClassName("web");
+      // get the value
+      document.write(element[0].value);
+    </script>
+
+    <hr />
+    <input type="text" value="Student Name" class="web" />
+    <div>
+      <input
+        type="text"
+        value="the available course, Math, Eco, MIS"
+        class="web"
+      />
+      <input type="text" value="C#, Java. PHP" />
+    </div>
+    <script language="javascript">
+      // take the tag
+      var element = document.querySelectorAll("div input.web");
+
+      // get the corresponding value
+      document.write("<h3>The student have: " + element[0].value + "</h3>");
+    </script>
+
+    <hr />
+    <script language="javascript">
+      // set
+      function set_content() {
+        document.getElementById("content").innerHTML = "<h1>I am No 2</h1>";
+      }
+
+      // function to get the content inside div#content
+      function get_content() {
+        var html = document.getElementById("content").innerHTML;
+        alert("we have: " + html);
+      }
+    </script>
+    <div id="content">Hey, show me the content</div>
+    <input
+      type="button"
+      value="Click here to get info"
+      id="get_content"
+      onclick="get_content()"
+    />
+    <input
+      type="button"
+      value="Change the content"
+      id="set_content"
+      onclick="set_content()"
+    />
+
+    <hr />
+    <script language="javascript">
+      function change() {
+        // declare an object
+        var object = document.getElementById("object");
+
+        // get the "type" attribute
+        var type = object.type;
+
+        // check and change it
+        if (type == "button") {
+          object.type = "text";
+        } else {
+          object.type = "button";
+        }
+      }
+    </script>
+    <input
+      type="button"
+      value="It has been changed"
+      onclick="change()"
+      id="object"
+    />
+
+    <hr />
+    <script language="javascript">
+      // we need 1 new tag e
+      var e = document.createElement("e");
+
+      // put HTML contain to e
+      e.innerHTML =
+        "DOM Nodes example with appendChild" +
+        "<br>" +
+        "Add this Node to the website, we use the method appendChild";
+
+      // return e to the body
+      document.getElementsByTagName("body")[0].appendChild(e);
+    </script>
+
+    <hr />
+    <script language="javascript">
+      var p = document.createElement("p");
+      var text = document.createTextNode("DOM Nodes example with appendChild");
+      p.appendChild(text);
+      document.getElementsByTagName("body")[0].appendChild(p);
+    </script>
+
+    <hr />
+
+    <script>
+      // we declare an Object No as Number
+      var No = new Number(12);
+      //we can add properties to the prototype of an object Number. prototype. Properties="Your value";
+      Number.prototype.Properties = "Your value";
+      // add methods
+      Number.prototype.valueOf = function () {};
+
+      // then we can use the methods related to Number
+      No.toString();
+      No.toFixed();
+      No.toPrecision();
+      No.valueOf();
+    </script>
+
+    <script language="javascript">
+      // Create an Object with function
+      Number.prototype.plus = function (value) {
+        // value of used to take the current value  return this.valueOf() + parseInt(value);
+        return this.valueOf() + parseInt(value);
+      };
+
+      // Create a new oject
+      var age = Number(12);
+      document.write(age.plus(12) + "<br/>");
+
+      // Create a second object with Number
+      var year = 2014;
+      document.write(year.plus(12));
+    </script>
+
+    <hr />
+    <script>
+      class Product {
+        constructor() {
+          // Properties
+          this.name = "";
+          this.emei = "";
+          this.address = "";
+
+          // Some methods
+          this.showInfo = function () {
+            document.write("Product name: " + this.name + "<br/>");
+            document.write("EMEI: " + this.emei + "<br/>");
+            document.write("Sale addess: " + this.address + "<br/>");
+          };
+        }
+      }
+      // create new object
+      var user01 = new Product();
+
+      // assign the properties
+      user01.name = "Samsung 4K";
+      user01.emei = "1212121";
+      user01.address = "HCMUTE";
+
+      user01.showInfo();
+    </script>
+
+    <!-- =================================================================== -->
+
+    <script language="javascript">
+      function change_background() {
+        document.getElementById("message").style.background = "red";
+      }
+      function change_color() {
+        document.getElementById("message").style.color = "blue";
+      }
+      function change_height() {
+        document.getElementById("message").style.height = "500px";
+      }
+      function change_font_size() {
+        document.getElementById("message").style.fontSize = "30px";
+      }
+    </script>
+    <div id="message">this part is an ex of changing css</div>
+    <input
+      type="button"
+      value="Change background"
+      onclick="change_background()"
+    />
+    <input type="button" value="Change color" onclick="change_color()" />
+    <input type="button" value="Change height" onclick="change_height()" />
+    <input type="button" value="Change fontSize" onclick="change_font_size()" />
+
+    <script language="javascript">
+      //validate user name & password
+      function validate() {
+        //input
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        var message = document.getElementById("message");
+        //validate
+        if (username == "" || password == "") {
+          message.innerHTML = "This cannot be blank!";
+          message.style.color = "red";
+        } else {
+          message.innerHTML = "You can login!";
+          message.style.color = "blue";
+        }
+      }
+    </script>
+    Username: <input type="text" value="" id="username" /><br />
+    Password: <input type="password" value="" id="password" /><br />
+    <div id="message">
+      <input type="button" value="login" onclick="validate()" />
+    </div>
+
+    <div id="TOP">WELCOME TO MEAN</div>
+    <input type="button" value="Append" id="btn-append" />
+
+    <script language="javascript">
+      //button
+      var button = document.getElementById("btn-append");
+      //click to button
+      button.addEventListener("click", function () {
+        //h1
+        var h1 = document.createElement("h1");
+        //html to h1
+        h1.innerHTML = "HCMUTE";
+        //h1 with id = "TOP"
+        document.getElementById("TOP").appendChild(h1);
+      });
+    </script>
+
+    <div id="content">
+      <h5>Products</h5>
+      <h5>Details</h5>
+    </div>
+    <input type="button" value="View" id="btn-view" />
+    <script language="javascript">
+      //button
+      var button = document.getElementById("btn-view");
+      //event click --> button
+      button.addEventListener("click", function () {
+        //h1
+        var h1 = document.createElement("h1");
+        //html --> h1
+        h1.innerHTML = "Samsung, Lenovo, ...";
+        var element = document.getElementById("content");
+        //insertbefore
+        var element_child = document.getElementsByTagName("h5")[1];
+        //insert before
+        element.insertBefore(h1, element_child);
+      });
+    </script>
+
+    <div id="content">
+      <h5>This content will be removed</h5>
+    </div>
+    <input type="button" value="Remove" id="btn-remove" />
+    <script language="javascript">
+      //button
+      var button = document.getElementById("btn-remove");
+      //click --> button
+      button.addEventListener("click", function () {
+        var need_remove = document.getElementsByTagName("h5")[0];
+        //remove
+        document.getElementById("content").removeChild(need_remove);
+      });
+    </script>
+
+    <div id="content">
+      <h5>I want to be a new one</h5>
+    </div>
+    <input type="button" value="Replace" id="btn-replace" />
+    <script language="javascript">
+      //button
+      var button = document.getElementById("btn-replace");
+      //click --> button
+      button.addEventListener("click", function () {
+        var p = document.createElement("h1");
+        p.innerHTML = "Oh, I am another";
+
+        var replace = document.getElementsByTagName("h5")[0];
+        //replace
+        document.getElementById("content").replaceChild(p, replace);
+      });
+    </script>
+
+    <!-- =================================================================== -->
+
+    <div>
+      <p>Enter an email address:</p>
+      <input id="email" />
+
+      <button type="submit" id="validate">Validate!</button>
+    </div>
+    <h2 id="validate-email-result"></h2>
+    <script src="./day-03.js"></script>
+  </body>
+</html>

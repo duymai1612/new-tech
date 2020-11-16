@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Day 02</title>
+    <style>
+      .divider {
+        border-top: 3px solid #bbb;
+      }
+
+      .number-input-container {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+      }
+      #number-input {
+        margin-bottom: 10px;
+      }
+      .error-message {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Day 02 exercises with JavaScript</h1>
+
+    <section>
+      <h2>Examples</h2>
+      <div>
+        <button>Clear timeout</button>
+      </div>
+      <div>
+        <p>HTC</p>
+        <p>Nokia</p>
+        <p>Samsum</p>
+        <p>Apple</p>
+      </div>
+      <div id="loop"></div>
+      <div>
+        <p>1st element: Duy</p>
+        <p>2st element: Mai</p>
+        <p>3st element: 1999</p>
+        <p>4st element: HCM</p>
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <section>
+      <h2>1. Counter Clock</h2>
+      <div>
+        <p>Input initial number</p>
+        <div>
+          <input type="number" placeholder="Giờ" /> <br />
+          <input type="number" placeholder="Phút" /> <br />
+          <input type="number" placeholder="Giây" />
+        </div>
+        <div>
+          <button>Start</button>
+          <button>Stop</button>
+        </div>
+        <span>00:58:40</span>
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <section>
+      <h2>2. Data checking with Try…catch</h2>
+      <div>
+        <div class="number-input-container">
+          <input type="number" id="number-input" />
+          <span class="error-message" id="error-message"></span>
+        </div>
+        <br />
+        <button onclick="validateNumber()">Validate</button>
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <section>
+      <h2>3. Onclick example</h2>
+      <div>
+        <p id="hello"></p>
+        <button onclick="hello()">Hello</button>
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <section>
+      <h2>
+        4. a program with an input cell and a div tag used to display the
+        content
+      </h2>
+      <div>
+        <input type="text" id="message" onkeyup="showResult()" />
+        <div id="result" />
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <section>
+      <h2>5. Calculation by adding 2 numbers</h2>
+      <div>
+        <div>a: <input type="number" id="a" onkeyup="calculateSum()" /></div>
+        <div>b: <input type="number" id="b" onkeyup="calculateSum()" /></div>
+        Result: <span id="sum-result"></span>
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <section>
+      <h2>6. Return true/false in JS</h2>
+      <div>
+        <div>Username: <input type="text" id="username" /></div>
+        <div>Password: <input type="text" id="password" /></div>
+        <div>Confirm Password: <input type="text" id="confirm-password" /></div>
+        <button onclick="validateSignUp()">Sign Up</button>
+      </div>
+    </section>
+
+    <!-- <script src="./day-02.js"></script> -->
+    <script>
+      setTimeout(() => {
+        alert("Welcome");
+      }, 1000);
+
+      const loopBlock = document.getElementById("loop");
+      let loopContent = "";
+      for (let i = 0; i < 10; ++i) {
+        for (let j = 0; j < 10; ++j) {
+          loopContent += `[${i}][${j}]  `;
+        }
+        loopContent += `<br />`;
+      }
+      loopBlock.innerHTML = loopContent;
+
+      function validateNumber() {
+        const errorMessageBlock = document.getElementById("error-message");
+        try {
+          const inputValue = document.getElementById("number-input").value;
+          if (!inputValue) {
+            throw "This field is required";
+          }
+          if (isNaN(inputValue)) {
+            throw "The value is not a number";
+          }
+          if (inputValue < 1) {
+            throw "The value must greater than or equal to 1";
+          }
+          if (inputValue > 10) {
+            throw "The value must smaller than 11";
+          }
+
+          errorMessageBlock.innerHTML = "";
+          alert("The value is valid");
+        } catch (error) {
+          errorMessageBlock.innerHTML = error;
+        }
+      }
+
+      function hello() {
+        const name = "Duy Mai";
+        document.getElementById(
+          "hello"
+        ).innerHTML = `Hello, my name is ${name}`;
+      }
+
+      function showResult() {
+        document.getElementById("result").innerHTML = document.getElementById(
+          "message"
+        ).value;
+      }
+
+      function calculateSum() {
+        const a = document.getElementById("a").value;
+        const b = document.getElementById("b").value;
+        const sum = parseInt(a) + parseInt(b);
+        document.getElementById("sum-result").innerHTML = !isNaN(sum)
+          ? sum
+          : "Error";
+      }
+
+      function validateSignUp() {
+        const username = document.getElementById("username").value;
+        const pwd = document.getElementById("password").value;
+        const rePwd = document.getElementById("confirm-password").value;
+
+        if (!username) {
+          alert("You must enter username");
+          return false;
+        }
+        if (!pwd) {
+          alert("You must enter password");
+          return false;
+        }
+        if (rePwd !== pwd) {
+          alert("Confirm password is not correct");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      document.write("<h1>A web page for counting button clicks</h1>");
+    </script>
+    <button id="count-button" onclick="handleClickCount()" />
+    <button onclick="handleClickReset()">Reset count</button>
+
+    <script>
+      function handleClickCount() {
+        alert(`Hi ${name || ""}, You clicked ${++count} times`);
+      }
+
+      function handleMouseOver() {
+        alert("There is a clicking count for this button");
+        document
+          .getElementById("count-button")
+          .removeEventListener("mouseover", handleMouseOver);
+      }
+
+      function handleClickReset() {
+        if (confirm("Are you sure to reset the count?")) {
+          count = 0;
+          alert("Reset successfully");
+        } else {
+          alert(`Current count is ${count}`);
+        }
+      }
+    </script>
+    <script>
+      let count = 0;
+      document.getElementById("count-button").innerHTML = "Click me please!!!";
+
+      document
+        .getElementById("count-button")
+        .addEventListener("mouseover", handleMouseOver);
+
+      const name = prompt("Hi, what's your name?");
+    </script>
+  </body>
+</html>
