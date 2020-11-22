@@ -1,0 +1,39 @@
+<% var title = 'Login' %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title><%= title %></title>
+    <style>
+      body {
+        padding: 50px;
+        font: 13px Helvetica, Arial, sans-serif;
+      }
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <%- message %> Try accessing <a href="/restricted">/restricted</a>, then login or
+    <a href="/sign-up">sign up</a> and retry.
+    <form method="post" action="/users/login">
+      <p>
+        <label>Username:</label>
+        <input type="text" name="username" />
+      </p>
+      <p>
+        <label>Password:</label>
+        <input type="text" name="password" />
+      </p>
+      <p>
+        <input type="submit" value="Login" />
+      </p>
+    </form>
+  </body>
+</html>
